@@ -2,7 +2,7 @@ import {
   createPlayer,
   getPlayerById,
   listPlayers,
-} from "../models/playerModel";
+} from "../models/playerModel.js";
 
 export const create = (req, res) => {
   const { fullName, age, hight, weight, position, team } = req.body;
