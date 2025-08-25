@@ -1,10 +1,9 @@
 import { Router } from "express";
-import { create, getById, list } from "../controllers/playerController.js";
+import { create, list } from "../controllers/statController.js";
 
 const router = Router();
 
 router.post("/", create);
 router.get("/", list);
-router.get("/:id", getById);
 
 export default router;
