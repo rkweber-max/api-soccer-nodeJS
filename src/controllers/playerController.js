@@ -17,7 +17,7 @@ export const create = (req, res) => {
 
 export const getById = (req, res) => {
   const { id } = req.params;
-  const player = getPlayerById(id);
+  const player = getPlayerById(Number(id));
 
   if (!player) {
     return res.status(404).json({ error: "Player is not found" });
@@ -27,5 +27,5 @@ export const getById = (req, res) => {
 };
 
 export const list = (req, res) => {
-  res.json(listPlayers);
+  res.json(listPlayers());
 };

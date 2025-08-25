@@ -5,7 +5,7 @@ export const create = (req, res) => {
   const { playerId } = req.params;
   const { minutesPlayed, distanceKM, avgSpeed, notes } = req.body;
 
-  const player = getStatByPlayer(playerId);
+  const player = getStatByPlayer(Number(playerId));
 
   if (!player) {
     return res.status(404).json({ error: "Player is not found" });
