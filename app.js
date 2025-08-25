@@ -1,18 +1,16 @@
-const express = require("express");
+import express from "express";
+import playersRoutes from "./src/routes/players.js";
+import statsRoutes from "./src/routes/stats.js";
 
+const PORT = 3000;
 const app = express();
-app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
+app.use(express.json());
+app.use("/players", playersRoutes);
+app.use("/stats", statsRoutes);
 
 app.listen(PORT, () => {
-  console.log("Server Listening on PORT:", port);
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
 
-app.get("/status", (request, response) => {
-  const status = {
-    Status: "Teste",
-  };
-
-  response.send(status);
-});
+export default app;
